@@ -16,12 +16,12 @@ class Aggregator:
         return f"{appendName}.csv"
     
 
-    # filter down data frame based on a given year for the column "time"
+    # return a copy of the original data frame, filtered based on a given year for the column "time"
     def filterPassupsDataFrameByYear(self, target_year: str) -> pandas.DataFrame:
         # start_date = f"{year}-01-01T00:00:00"       # beginning of the year
         # end_date = f"{year}-12-31T23:59:59"         # end of the year
 
-        filtered_df = self.data_frame[self.data_frame["time"].dt.year == target_year]
+        filtered_df = self.data_frame[self.data_frame["time"].dt.year == target_year].copy()
 
         # queryStr = f"time between '{start_date}' and '{end_date}' and pass_up_type = '{PASS_UP_TYPE_FULL}'"
         # # soql = f"SELECT * WHERE time between '{start_date}' and '{end_date}'"
@@ -46,7 +46,7 @@ class Aggregator:
             total_passups = len(passups_df)                          # get size of data frame (number of rows)
             with open(csv_file_name, mode='a', newline='') as file:
                 writer = csv.writer(file)
-                writer.writerow([year,total_passups])
+                writer.writerow([year,total_passups])               # write to CSV
     
 
     # find total passups for every route per year, then write to CSV file
@@ -59,17 +59,35 @@ class Aggregator:
             writer.writerow([])                                     # insert new line
 
         for year in years:
-            passups_df = self.filterPassupsDataFrameByYear(year)     # get passup data for the year as a data frame
+            passups_df = self.filterPassupsDataFrameByYear(year)     # get passup data for the year
             value_counts = passups_df['route_number'].value_counts().reset_index() # get frequency for each route
             value_counts.columns = ['Route Number', 'Pass-Ups']
-            with open(csv_file_name, mode='a', newline='') as file:  # write to csv file
+            with open(csv_file_name, mode='a', newline='') as file:  # write yearly findings to CSV
                 writer = csv.writer(file)
                 writer.writerow([f"In the Year {year}"])
                 value_counts.to_csv(file, mode="a", header=True, index=False)
                 writer.writerow([])
     
 
-    # find the total number of passups for each month per year, then write to CSV file
+    # find total passups for each month per year, then write to CSV file
+    def findTotalPassupsByMonthForAllYears(self, years: List[int]):
+        csv_file_name = self.makeCSVFilename("total_passups_by_month_per_year")
+
+        with open(csv_file_name, mode='w', newline='') as file:     # overwrite csv file
+            writer = csv.writer(file)
+            writer.writerow(["Total Pass-Ups By Month Per Year"])   # insert title
+            writer.writerow([])                                     # insert new line
+
+        for year in years:
+            passups_df = self.filterPassupsDataFrameByYear(year)     # get passup data for the year
+            passups_df['month'] = passups_df['time'].dt.month        # new column for month
+            value_counts = passups_df['month'].value_counts().reset_index()  # get count for each month
+            value_counts.columns = ['Month', 'Pass-Ups']
+            with open(csv_file_name, mode='a', newline='') as file:  # write yearly findings to CSV
+                writer = csv.writer(file)
+                writer.writerow([f"In the Year {year}"])
+                value_counts.to_csv(file, mode="a", header=True, index=False)
+                writer.writerow([])
 
 # -------------------------------------------------------------------------------
 

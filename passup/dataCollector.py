@@ -17,7 +17,7 @@ client = Socrata(domain="data.winnipeg.ca",
 
 # retrieve data from database via API request; get only Full Bus Pass-Up data (ignore wheelchair passups)
 def getPassupData() -> pandas.DataFrame:
-    queryStr = f"pass_up_type = '{PASS_UP_TYPE_FULL}'"      # only get rows with full pass-up type
+    queryStr = f"pass_up_type = '{PASS_UP_TYPE_FULL}'"      # find rows with full pass-up type only
     results = client.get(PASS_UP_DATA_ID, limit=PASS_UP_MAX_ROWS, where=queryStr)   # we get back JSON
     results_df = pandas.DataFrame.from_records(results)     # convert to data frame
     client.close()

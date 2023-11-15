@@ -25,15 +25,20 @@ def main():
     aggregator = ag(results_df)
     
     print("Initiating data mining procedures...")
+    years = [2022, 2021, 2020, 2019, 2018, 2017]
 
     print("Phase 1: Calculate total pass-ups per year")
-    years = [2022, 2021, 2020, 2019, 2018, 2017]
     aggregator.findTotalPassupsForAllYears(years)
     print("DONE")
 
     print("Phase 2: Calculate total pass-ups by route per year")
     aggregator.findTotalPassupsByRouteForAllYears(years)
     print("DONE")
+
+    print("Phase 3: Calculate total pass-ups by month per year")
+    aggregator.findTotalPassupsByMonthForAllYears(years)
+    print("DONE")
+
 
 
 # executes main method if file is ran directly (not imported as module)
