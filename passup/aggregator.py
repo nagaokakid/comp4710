@@ -17,7 +17,7 @@ class Aggregator:
     
 
     # return a copy of the original data frame, filtered based on a given year for the column "time"
-    def filterPassupsDataFrameByYear(self, target_year: str) -> pandas.DataFrame:
+    def filterPassupsDataFrameByYear(self, target_year: int) -> pandas.DataFrame:
         # start_date = f"{year}-01-01T00:00:00"       # beginning of the year
         # end_date = f"{year}-12-31T23:59:59"         # end of the year
 
