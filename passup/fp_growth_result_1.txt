@@ -1,0 +1,30 @@
+These are the frequent item sets pertaining to routes, route names, and route destinations from the pass-up data set.
+The minimum support is set at 5%.
+
+Itemset: {'Portage-Kildonan'}, Support: 0.15494791666666666
+Itemset: {'11'}, Support: 0.15494791666666666
+Itemset: {'BLUE'}, Support: 0.2892485119047619
+Itemset: {'To Downtown'}, Support: 0.18656994047619047
+Itemset: {'To Kildonan Place'}, Support: 0.06491815476190477
+Itemset: {'University of Manitoba'}, Support: 0.10900297619047619
+Itemset: {'to St. Norbert'}, Support: 0.1095610119047619
+Itemset: {'Transcona - Pembina'}, Support: 0.05264136904761905
+Itemset: {'47'}, Support: 0.05264136904761905
+Itemset: {'To University of Manitoba'}, Support: 0.10974702380952381
+Itemset: {'Pembina'}, Support: 0.053943452380952384
+Itemset: {'60'}, Support: 0.053943452380952384
+Itemset: {'Crosstown East'}, Support: 0.12202380952380952
+Itemset: {'75'}, Support: 0.12202380952380952
+Itemset: {'11', 'Portage-Kildonan'}, Support: 0.15494791666666666
+Itemset: {'BLUE', 'To Downtown'}, Support: 0.12239583333333333
+Itemset: {'75', 'To Kildonan Place'}, Support: 0.057291666666666664
+Itemset: {'To Kildonan Place', 'Crosstown East'}, Support: 0.057291666666666664
+Itemset: {'75', 'To Kildonan Place', 'Crosstown East'}, Support: 0.057291666666666664
+Itemset: {'University of Manitoba', 'BLUE'}, Support: 0.05710565476190476
+Itemset: {'to St. Norbert', 'BLUE'}, Support: 0.1095610119047619
+Itemset: {'Transcona - Pembina', '47'}, Support: 0.05264136904761905
+Itemset: {'To University of Manitoba', '75'}, Support: 0.05357142857142857
+Itemset: {'To University of Manitoba', 'Crosstown East'}, Support: 0.05357142857142857
+Itemset: {'To University of Manitoba', '75', 'Crosstown East'}, Support: 0.05357142857142857
+Itemset: {'60', 'Pembina'}, Support: 0.053943452380952384
+Itemset: {'75', 'Crosstown East'}, Support: 0.12202380952380952
