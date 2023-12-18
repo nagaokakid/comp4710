@@ -9,6 +9,7 @@ import pandas
 from sodapy import Socrata
 from aggregator import Aggregator as ag
 import dataCollector as dc
+import fpGrowth as fpg
 
 PASS_UP_DATA_ID = "mer2-irmb"               # last URI field for pass up data set
 PASSENGER_ACTIVITY_DATA_ID = "bv6q-du26"    # last URI field for passenger activity data set
@@ -37,6 +38,10 @@ def main():
 
     print("Phase 3: Calculate total pass-ups by month per year")
     aggregator.findTotalPassupsByMonthForAllYears(years)
+    print("DONE")
+
+    print("Phase 4: FP-growth on pass-ups data set")
+    fpg.fpGrowth()
     print("DONE")
 
 
