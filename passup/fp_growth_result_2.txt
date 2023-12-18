@@ -1,5 +1,5 @@
 These are the frequent singletons pertaining to 24-hour time ranges from the pass-up data set.
-The minimum support is set at 0.5%
+The minimum support is set at 0.5%.
 
 Itemset: {'16:46:00'}, Support: 0.006882440476190476
 Itemset: {'16:20:00'}, Support: 0.006510416666666667

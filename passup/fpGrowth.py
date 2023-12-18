@@ -85,7 +85,5 @@ def fpGrowth():
         for index, row in frequent_itemsets.iterrows():
             file.write(f"Itemset: {set(row['itemsets'])}, Support: {row['support']}\n")
 
-fpGrowth()
-
 
 
