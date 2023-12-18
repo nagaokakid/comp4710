@@ -48,7 +48,7 @@ def fpGrowth():
 
     # print frequent itemsets
     with open('fp_growth_result_1.txt', 'w') as file:
-        file.write("These are the frequent item sets pertaining to routes, route names, and route destinations from the pass-up data set.\n")
+        file.write("These are the frequent item sets pertaining to routes, route names, and route destinations for 2022 in the pass-up data set.\n")
         file.write("The minimum support is set at 10%.\n\n")
         for index, row in frequent_itemsets.iterrows():
             if 'nan' in row['itemsets']:
@@ -80,7 +80,7 @@ def fpGrowth():
     frequent_itemsets = fpgrowth(one_hot_df, min_support=0.005, use_colnames=True)
 
     with open('fp_growth_result_2.txt', 'w') as file:
-        file.write("These are the frequent singletons pertaining to 24-hour time ranges from the pass-up data set.\n")
+        file.write("These are the frequent singletons pertaining to 24-hour time ranges for 2022 from the pass-up data set.\n")
         file.write("The minimum support is set at 0.5%.\n\n")
         for index, row in frequent_itemsets.iterrows():
             file.write(f"Itemset: {set(row['itemsets'])}, Support: {row['support']}\n")
