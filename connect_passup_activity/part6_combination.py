@@ -4,7 +4,7 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 
-TOTAL_PASS_UPS = 3958
+PERCENT = 100
 severiy_df = pd.read_csv("severity_ranking.csv")
 
 os.makedirs("combinations for top15 of severity rankings",exist_ok=True)
@@ -24,20 +24,21 @@ for index in range(15):
     #plt.savefig("figures for top15 of severity rankings/"+route_direct_id+".png")
     #plt.close()
     t = combination_df.index
-    data1 = TOTAL_PASS_UPS*combination_df["pass_up_support"]
+    data1 = PERCENT*combination_df["pass_up_support"]
     data2 = combination_df["boardings"]
     
     fig, ax1 = plt.subplots()
     ax1.set_xlabel('Indices of the stops in the order of the bus direction')
-    ax1.set_ylabel('pass up\nsupport', color='red', rotation=0, labelpad=10)
+    ax1.set_ylabel('pass up\nsupport\n(%)', color='red', rotation=0, labelpad=15)
     ax1.plot(t, data1, color='red', label='pass up support')
     ax1.tick_params(axis='y', colors='red', labelsize=10, pad=2)
     ax1.spines['left'].set_color('red')
     plt.legend(loc=(0.65, 0.88), labelcolor='red', fontsize=10)
+    fig.tight_layout()
     
     ax2 = ax1.twinx()
     
-    ax2.set_ylabel('average\n   boardings', color='blue', rotation=0, labelpad=10)  # we already handled the x-label with ax1
+    ax2.set_ylabel('average\n   boardings', color='blue', rotation=0, labelpad=15)  # we already handled the x-label with ax1
     ax2.plot(t, data2, color='blue', label='avearge boardings')
     ax2.tick_params(axis='y', colors='blue', labelsize=10, pad=2)
     ax2.spines['right'].set_color('blue')
