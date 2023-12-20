@@ -7,7 +7,7 @@ This repository is broken up into 4 different directories, each serving a differ
 
 ### Pass-Ups
 
-To execute frequent pattern mining operations on the pass-up data set and obtain the results, navigate to the "passup" directory. Then, run the command `python3 main.py`. Two text files and 3 CSV files will be generated as output in the same directory:
+To execute frequent pattern mining operations on the pass-up data set and obtain the results, navigate to the "passup" directory. Then, run the command `python main.py`. Two text files and 3 CSV files will be generated as output in the same directory:
 
 - fp_growth_result_1.txt: contains the frequent item sets from the pass-up data set with a minimum support set at 10%
 - fp_growth_result_2.txt: contains the frequent singleton item sets related to times of the day (24-hour format) from the pass-up data set with a minimum support set at 0.5%

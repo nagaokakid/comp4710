@@ -1,0 +1,16 @@
+These are the frequent item sets pertaining to routes, route names, and route destinations from the pass-up data set.
+The minimum support is set at 10%.
+
+Itemset: {'Portage-Kildonan'}, Support: 0.15494791666666666
+Itemset: {'11'}, Support: 0.15494791666666666
+Itemset: {'BLUE'}, Support: 0.2892485119047619
+Itemset: {'To Downtown'}, Support: 0.18656994047619047
+Itemset: {'University of Manitoba'}, Support: 0.10900297619047619
+Itemset: {'to St. Norbert'}, Support: 0.1095610119047619
+Itemset: {'To University of Manitoba'}, Support: 0.10974702380952381
+Itemset: {'Crosstown East'}, Support: 0.12202380952380952
+Itemset: {'75'}, Support: 0.12202380952380952
+Itemset: {'Portage-Kildonan', '11'}, Support: 0.15494791666666666
+Itemset: {'BLUE', 'To Downtown'}, Support: 0.12239583333333333
+Itemset: {'BLUE', 'to St. Norbert'}, Support: 0.1095610119047619
+Itemset: {'Crosstown East', '75'}, Support: 0.12202380952380952
