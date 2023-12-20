@@ -3,6 +3,7 @@ import dataCollector
 import pandas
 from mlxtend.preprocessing import TransactionEncoder
 from mlxtend.frequent_patterns import fpgrowth
+import csv
 
 def fpGrowth():
     # df = dataCollector.getPassupData()     # pass up data frame
@@ -46,15 +47,18 @@ def fpGrowth():
     # perform FP growth analysis
     frequent_itemsets = fpgrowth(one_hot_df, min_support=0.1, use_colnames=True)
 
-    # print frequent itemsets
-    with open('fp_growth_result_1.txt', 'w') as file:
-        file.write("These are the frequent item sets pertaining to routes, route names, and route destinations for 2022 in the pass-up data set.\n")
-        file.write("The minimum support is set at 10%.\n\n")
+    # write frequent itemsets to csv file
+    with open('fp_growth_result_1.csv', 'w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow(["These are the frequent item sets pertaining to routes, route names, and route destinations for 2022 in the pass-up data set."])
+        writer.writerow(["The minimum support is set at 10%."])
+        writer.writerow([])
+        writer.writerow(["Itemset", "Support (%)"])
         for index, row in frequent_itemsets.iterrows():
             if 'nan' in row['itemsets']:
                 pass
             else:
-                file.write(f"Itemset: {set(row['itemsets'])}, Support: {row['support']}\n")
+                writer.writerow([set(row['itemsets']), row['support']])
 
     df = df.drop('Route Number', axis=1)
     df = df.drop('Route Name', axis=1)
@@ -78,12 +82,18 @@ def fpGrowth():
 
     # perform FP growth analysis
     frequent_itemsets = fpgrowth(one_hot_df, min_support=0.005, use_colnames=True)
-
-    with open('fp_growth_result_2.txt', 'w') as file:
-        file.write("These are the frequent singletons pertaining to 24-hour time ranges for 2022 from the pass-up data set.\n")
-        file.write("The minimum support is set at 0.5%.\n\n")
+    
+    # write frequent itemsets to csv file
+    with open('fp_growth_result_2.csv', 'w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow(["These are the frequent singletons pertaining to 24-hour time values for 2022 from the pass-up data set."])
+        writer.writerow(["The minimum support is set at 0.5%."])
+        writer.writerow([])
+        writer.writerow(["Itemset", "Support (%)"])
         for index, row in frequent_itemsets.iterrows():
-            file.write(f"Itemset: {set(row['itemsets'])}, Support: {row['support']}\n")
-
+            if 'nan' in row['itemsets']:
+                pass
+            else:
+                writer.writerow([set(row['itemsets']), row['support']])
 
 

@@ -1,0 +1,17 @@
+"These are the frequent item sets pertaining to routes, route names, and route destinations for 2022 in the pass-up data set."
+The minimum support is set at 10%.
+
+Itemset,Support (%)
+{'Portage-Kildonan'},0.15494791666666666
+{'11'},0.15494791666666666
+{'BLUE'},0.2892485119047619
+{'To Downtown'},0.18656994047619047
+{'University of Manitoba'},0.10900297619047619
+{'to St. Norbert'},0.1095610119047619
+{'To University of Manitoba'},0.10974702380952381
+{'Crosstown East'},0.12202380952380952
+{'75'},0.12202380952380952
+"{'11', 'Portage-Kildonan'}",0.15494791666666666
+"{'BLUE', 'To Downtown'}",0.12239583333333333
+"{'BLUE', 'to St. Norbert'}",0.1095610119047619
+"{'Crosstown East', '75'}",0.12202380952380952
