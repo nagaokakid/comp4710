@@ -1,0 +1,111 @@
+,route_direction,severity_factor
+0,BLUE Downtown,21.12
+1,BLUE University of Manitoba,9.3214
+2,BLUE St. Norbert,8.4091
+3,75 Kildonan Place,7.2442
+4,75 University of Manitoba,7.1086
+5,60 University of Manitoba,2.846
+6,672 Prairie Pointe via Killarney,2.2365
+7,11 Polo Park,2.0153
+8,60 Downtown,1.8766
+9,36 Health Sciences Centre,1.8337
+10,672 U. of Manitoba via Killarney,1.8337
+11,671 U. of Manitoba via Dalhousie,1.4998
+12,47 University of Manitoba,1.4489
+13,36 University of Manitoba,1.3396
+14,11 Glenway,1.2497
+15,11 North Kildonan via Rothesay,1.2152
+16,78 Polo Park,0.9794
+17,662 University of Manitoba,0.8822
+18,47 Transcona via Regent,0.7918
+19,24 Downtown,0.767
+20,671 Prairie Pointe via Dalhousie,0.714
+21,662 Markham Station,0.6609
+22,66 Unicity,0.6165
+23,18 Riverbend,0.5474
+24,78 University of Manitoba,0.5332
+25,74 University of Manitoba,0.5274
+26,14 South St. Vital via Dakota,0.4715
+27,15 Airport via Wellington,0.4611
+28,18 Tuxedo,0.4331
+29,24 Unicity,0.3868
+30,21 Grace Hospital,0.3571
+31,11 North Kildonan via Donwood,0.3383
+32,14 Ferry Road,0.3296
+33,19 RRC Polytech via Notre Dame,0.3234
+34,28 Downtown,0.306
+35,74 Polo Park,0.3
+36,54 Downtown,0.2826
+37,47 Transcona via Kildare,0.2803
+38,21 Downtown,0.2498
+39,77 Polo Park,0.2356
+40,15 Inkster Park via Inkster,0.225
+41,19 Windsor Park via Autumnwood,0.2238
+42,55 St. Vital Centre via Meadowood,0.2132
+43,49 North Transcona,0.2089
+44,50 Sage Creek,0.2058
+45,44 Kildonan Place via London,0.1949
+46,21 St. Charles,0.1872
+47,21 Westwood,0.1864
+48,44 Broadway via Louelda,0.1746
+49,54 South St. Vital,0.1737
+50,15 Inkster Park via Church,0.1732
+51,17 Maples,0.1648
+52,677 Beaumont Station,0.154
+53,44 Kildonan Place via Louelda,0.1492
+54,22 St. Charles,0.1464
+55,49 Downtown,0.1428
+56,77 Kildonan Place,0.1263
+57,66 City Hall,0.1251
+58,11 Crestview,0.1249
+59,28 Inkster Park,0.1224
+60,90 North Transcona,0.1213
+61,11 Westwood,0.1192
+62,19 Windsor Park via Drake,0.117
+63,55 Downtown via Meadowood,0.1092
+64,33 Downtown,0.1078
+65,11 Downtown,0.1035
+66,36 Maples,0.0944
+67,35 Amber Trails,0.0816
+68,29 Beaumont Station,0.075
+69,649 Whyte Ridge,0.069
+70,21 Crestview,0.0645
+71,90 Henderson & Whellams,0.0637
+72,17 Misericordia Health Centre,0.0528
+73,14 South St. Vital via Paddington,0.05
+74,22 Crestview,0.0488
+75,58 Downtown,0.0483
+76,29 Logan,0.0454
+77,32 Downtown,0.0444
+78,25 Unicity,0.0444
+79,16 Island Lakes,0.0429
+80,16 Tyndall Park via Burrows,0.04
+81,66 Polo Park,0.0392
+82,41 Downtown,0.037
+83,677 Kenaston Common,0.0345
+84,18 Garden City via Jefferson,0.0341
+85,38 The Forks,0.0334
+86,33 Amber Trails via Mapleglen,0.0322
+87,41 North Kildonan,0.0294
+88,16 Tyndall Park via Manitoba,0.0294
+89,16 Plaza Drive,0.0285
+90,19 RRC Polytech via Logan,0.0256
+91,50 Downtown,0.0256
+92,12 City Hall,0.0244
+93,25 Downtown,0.0238
+94,22 Downtown,0.0238
+95,40 All Seasons,0.0238
+96,20 Watt & Leighton,0.0236
+97,676 Bridgwater Centre,0.0222
+98,31 Meadows West,0.0217
+99,31 Downtown,0.0217
+100,65 Ridgewood,0.0217
+101,59 Island Lakes,0.0213
+102,35 Downtown,0.0204
+103,24 Polo Park,0.0196
+104,31 Oak Point,0.0189
+105,649 Windermere,0.0185
+106,43 Assiniboine,0.0182
+107,45 Downtown via Munroe,0.0169
+108,59 Aldgate,0.0159
+109,44 Broadway via London,0.0137
