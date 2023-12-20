@@ -35,6 +35,7 @@ def time_series(pass_up, decomposition, route_number):
     plt.tight_layout()
     plt.savefig(os.getcwd() + '/passup_anomaly/time_series/' +
                 route_number+'.png')
+    plt.close()
 
 
 def anomaly_detection(decomposition, route_number):
@@ -42,7 +43,8 @@ def anomaly_detection(decomposition, route_number):
     # Extract anomalies from residual with more than 2 standard deviations from the mean
     mean = np.mean(residual)
     sd = np.std(residual)
-    anomaly_line = sd * 1.5
+    anomaly_line = sd * 1
+
     # Cross the threshold line
     lower_threshold = mean - anomaly_line
     upper_threshold = mean + anomaly_line
@@ -69,14 +71,31 @@ def anomaly_detection(decomposition, route_number):
     plt.title('Residual based for Anomaly Detection')
     plt.savefig(os.getcwd() + '/passup_anomaly/anomaly_detection/' +
                 route_number+'.png')
+    plt.close()
+
+
+def plot_passup(route_number):
+    data = pd.read_csv(
+        os.getcwd() + '/passup_anomaly/route_passup/'+route_number+'.csv')
+    data['Time'] = pd.to_datetime(data['Time'])
+    data = data[(data['Time'] >= '2022-01-01') &
+                (data['Time'] <= '2022-12-31')]
+    plt.figure(figsize=(12, 6))
+    plt.plot(data['Time'], data['Passup'], label='Pass-up')
+    plt.legend()
+    plt.title('Pass-up for Route' + route_number)
+    plt.savefig(os.getcwd() + '/passup_anomaly/route_passup_img/' +
+                route_number + '.png')
+    plt.close()
 
 
 def main():
     list_of_routes = pd.read_csv(
         os.getcwd() + '/passup/all-routes.csv', header=None)
     list_of_routes = list_of_routes[0].unique()
-    # Get 5 most popular routes
-    list_of_routes = ['11', 'BLUE', '75', '47', '60', '36', '672']
+    # Get 10 most popular routes
+    list_of_routes = ['11', 'BLUE', '75', '47',
+                      '60', '36', '672', '33', '24', '14']
 
     for route in list_of_routes:
         data = pd.read_csv(
@@ -85,17 +104,22 @@ def main():
         # Convert 'Time' to datetime and sort the data
         data['Time'] = pd.to_datetime(data['Time'])
         data.sort_values('Time', inplace=True)
-        data = data[(data['Time'] >= '2023-09-01') &
-                    (data['Time'] <= '2023-12-30')]
+        data = data[(data['Time'] >= '2022-09-01') &
+                    (data['Time'] <= '2022-12-30')]
+        if not data.empty:
+            # Resample the data by day and create a time series of the count of pass-ups per day
+            pass_ups = data.resample('D', on='Time').size()
 
-        # Resample the data by day and create a time series of the count of pass-ups per day
-        pass_ups = data.resample('D', on='Time').size()
+            # Perform time series decomposition
+            decomposition = seasonal_decompose(pass_ups, model='additive')
+            print('ROUTE NUMBER: ', route)
+            time_series(pass_ups, decomposition, route)
+            anomaly_detection(decomposition, route)
 
-        # Perform time series decomposition
-        decomposition = seasonal_decompose(pass_ups, model='additive')
-        print('ROUTE NUMBER: ', route)
-        time_series(pass_ups, decomposition, route)
-        anomaly_detection(decomposition, route)
+            # Plot pass-up for each route
+            plot_passup(route)
+        else:
+            print('Route: ' + route + ' is empty')
 
 
 main()
