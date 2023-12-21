@@ -53,7 +53,7 @@ def fpGrowth():
         writer.writerow(["These are the frequent item sets pertaining to routes, route names, and route destinations for 2022 in the pass-up data set."])
         writer.writerow(["The minimum support is set at 10%."])
         writer.writerow([])
-        writer.writerow(["Itemset", "Support (%)"])
+        writer.writerow(["Itemset", "Support"])
         for index, row in frequent_itemsets.iterrows():
             if 'nan' in row['itemsets']:
                 pass
@@ -65,7 +65,7 @@ def fpGrowth():
     df = df.drop('Route Destination', axis=1)
 
     # round date time values to nearest minute
-    df['Time'] = df['Time'].dt.round('T')
+    df['Time'] = df['Time'].dt.round('H')
 
     # keep only the hour and the minute for each datetime value
     df['Time'] = df['Time'].dt.strftime('%H:%M:%S')
@@ -81,15 +81,15 @@ def fpGrowth():
     one_hot_df = pandas.DataFrame(te_ary, columns=te.columns_)
 
     # perform FP growth analysis
-    frequent_itemsets = fpgrowth(one_hot_df, min_support=0.005, use_colnames=True)
+    frequent_itemsets = fpgrowth(one_hot_df, min_support=0.05, use_colnames=True)
     
     # write frequent itemsets to csv file
     with open('fp_growth_result_2.csv', 'w', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(["These are the frequent singletons pertaining to 24-hour time values for 2022 from the pass-up data set."])
-        writer.writerow(["The minimum support is set at 0.5%."])
+        writer.writerow(["The minimum support is set at 5%."])
         writer.writerow([])
-        writer.writerow(["Itemset", "Support (%)"])
+        writer.writerow(["Itemset", "Support"])
         for index, row in frequent_itemsets.iterrows():
             if 'nan' in row['itemsets']:
                 pass
