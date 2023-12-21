@@ -27,3 +27,16 @@ To run this part, navigate to "connect_passup_activity" directory. Unzip the fil
 - boardings for each stop of different directions: this folder contains the csv files similar to the lists of bus stops in order, except that I add a new column "average_boardings" for each entry (stop).
 - combinations for top15 of severity rankings: Since we have known the average_boardings and the pass-up support for each stop, we put the two columns together. So for each entry in the files of the foler, there are three values: pass_up_support, boardings and stop_id. Here we only care about the top 15 routes in the ranking of severity.
 - figures for top 15 of severity rankings: according to the files in the folder "combinations for top15 of severity rankings", we plot figures to visualize the pass-up support and avearge boardings of the top 15. So we can find the peaks easily.
+
+### passup_anomaly
+
+The "passup_anomaly" directory is dedicated to identifying and analyzing anomalies in the pass-up data. This involves preprocessing the data, applying time series analysis, and detecting any unusual patterns or outliers that deviate from normal trends. To run this analysis, navigate to the "passup_anomaly" directory and execute the following commands:
+
+- **Preprocessing the Data**: Start by running `python3 preprocessing.py`. This script prepares the pass-up data for analysis, ensuring it's in the correct format for time series decomposition. It cleans the data, handles missing values, and aggregates the pass-up occurrences to a daily frequency, making it suitable for trend and anomaly detection.
+- **Time Series Analysis**: Next, execute `python3 time_series.py`. This script applies time series decomposition to the preprocessed data, breaking it down into trend, seasonal, and residual components. It helps to understand the underlying patterns in the pass-up occurrences over time, separating regular patterns from irregular ones.
+
+The output from this directory includes several key components:
+
+- **time_series**: This folder contains the detailed time series analysis for the listed bus routes. It includes graphs and data sets showing trends, seasonal variations, and residuals, offering a comprehensive view of the pass-up patterns over time.
+- **anomaly_detection**: This folder is crucial as it highlights the anomalies detected in the pass-up data. It includes lists and visual representations of dates and times where the pass-up occurrences significantly deviate from the established patterns. This could indicate unusual events or changes in passenger behavior that are not captured by the regular trend and seasonal components.
+- **route_passup_plot**: This folder contains aggregated daily pass-up data for the listed routes. It provides a visual representation of the frequency of pass-ups over time, allowing for a quick assessment of which routes and times are most prone to high pass-up rates. This can be especially useful for transit authorities looking to allocate resources more effectively and improve service reliability.

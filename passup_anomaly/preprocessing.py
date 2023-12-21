@@ -2,7 +2,7 @@
 import os
 import pandas as pd
 
-data = pd.read_csv(os.getcwd() + '/passup_anomaly/pass_up_with_stopID.csv')
+data = pd.read_csv('pass_up_with_stopID.csv')
 data['Time'] = pd.to_datetime(data['Time'])
 
 list_of_routes = data['Route Number'].unique()
@@ -17,8 +17,7 @@ def stops_data():
             ['stop_id']).size().reset_index(name='count')
         stops_passup = stops_passup.sort_values('count', ascending=False)
         stops_passup = stops_passup.reset_index(drop=True)
-        stops_passup.to_csv(
-            os.getcwd() + '/passup_anomaly/stops_data/' + route + '.csv', index=False)
+        stops_passup.to_csv('stops_data/' + route + '.csv', index=False)
 
 
 # Pass up data for each route
@@ -28,8 +27,7 @@ def route_data():
             data['Time'] >= '2022-09-01') & (data['Time'] <= '2022-12-31')]
         route_data = route_data.sort_values('Time', ascending=False)
         route_data = route_data.reset_index(drop=True)
-        route_data.to_csv(
-            os.getcwd() + '/passup_anomaly/route_data/' + route + '.csv', index=False)
+        route_data.to_csv('route_data/' + route + '.csv', index=False)
 
 # Count number of pass-up each day for each route
 
@@ -54,8 +52,7 @@ def route_passup():
             route_data_reindexed = route_data_reindexed.sort_values(
                 'Time', ascending=False)
             # Save to csv file
-            route_data_reindexed.to_csv(
-                os.getcwd() + '/passup_anomaly/route_passup/' + route + '.csv', index=False)
+            route_data_reindexed.to_csv('route_passup/' + route + '.csv', index=False)
             print('Route: ', route)
 
 

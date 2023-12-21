@@ -33,7 +33,7 @@ def time_series(pass_up, decomposition, route_number):
     plt.legend(loc='upper left')
 
     plt.tight_layout()
-    plt.savefig(os.getcwd() + '/passup_anomaly/time_series/' +
+    plt.savefig('time_series/' +
                 route_number+'.png')
     plt.close()
 
@@ -55,12 +55,10 @@ def anomaly_detection(decomposition, route_number):
     anomalies_df = anomalies.to_frame(name='Residual values')
     anomalies_df['Date'] = anomalies_df.index
     anomalies_df.reset_index(drop=True, inplace=True)  # Modify df inplace
-    anomalies_df['Date'].to_csv(
-        os.getcwd()+'/passup_anomaly/anomaly_dates/'+route_number+'.csv', index=False, header=False)
+    anomalies_df['Date'].to_csv('anomaly_dates/'+route_number+'.csv', index=False, header=False)
 
     # Reading snow dates
-    snow_dates = pd.read_csv(
-        os.getcwd() + '/passup_anomaly/snow-Q42022.csv', header=None, names=['Time'])
+    snow_dates = pd.read_csv('snow-Q42022.csv', header=None, names=['Time'])
     snow_dates['Time'] = pd.to_datetime(snow_dates['Time'])
 
     # Plot the anomalies
@@ -80,21 +78,19 @@ def anomaly_detection(decomposition, route_number):
 
     plt.legend()
     plt.title('Residual based for Anomaly Detection for Route ' + route_number)
-    plt.savefig(os.getcwd() + '/passup_anomaly/anomaly_detection/' +
+    plt.savefig('anomaly_detection/' +
                 route_number+'.png')
     plt.close()
 
 
 def plot_passup(route_number):
-    data = pd.read_csv(
-        os.getcwd() + '/passup_anomaly/route_passup/' + route_number + '.csv')
+    data = pd.read_csv('route_passup/' + route_number + '.csv')
     data['Time'] = pd.to_datetime(data['Time'])
     data = data[(data['Time'] >= '2022-09-01') &
                 (data['Time'] <= '2022-12-31')]
 
     # Reading snow dates
-    snow_dates = pd.read_csv(
-        os.getcwd() + '/passup_anomaly/snow-Q42022.csv', header=None, names=['Time'])
+    snow_dates = pd.read_csv('snow-Q42022.csv', header=None, names=['Time'])
     snow_dates['Time'] = pd.to_datetime(snow_dates['Time'])
 
     plt.figure(figsize=(12, 6))
@@ -107,22 +103,20 @@ def plot_passup(route_number):
 
     plt.legend()
     plt.title('Pass-up for Route ' + route_number)
-    plt.savefig(os.getcwd() + '/passup_anomaly/route_passup_img/' +
+    plt.savefig('route_passup_plot/' +
                 route_number + '.png')
     plt.close()
 
 
 def main():
-    list_of_routes = pd.read_csv(
-        os.getcwd() + '/passup/all-routes.csv', header=None)
+    list_of_routes = pd.read_csv('all-routes.csv', header=None)
     list_of_routes = list_of_routes[0].unique()
     # Get 10 most popular routes
     list_of_routes = ['11', 'BLUE', '75', '47',
                       '60', '36', '672', '33', '24', '14']
 
     for route in list_of_routes:
-        data = pd.read_csv(
-            os.getcwd() + '/passup_anomaly/route_data/' + route + '.csv')
+        data = pd.read_csv('route_data/' + route + '.csv')
 
         # Convert 'Time' to datetime and sort the data
         data['Time'] = pd.to_datetime(data['Time'])
