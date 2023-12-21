@@ -58,6 +58,11 @@ def anomaly_detection(decomposition, route_number):
     anomalies_df['Date'].to_csv(
         os.getcwd()+'/passup_anomaly/anomaly_dates/'+route_number+'.csv', index=False, header=False)
 
+    # Reading snow dates
+    snow_dates = pd.read_csv(
+        os.getcwd() + '/passup_anomaly/snow-Q42022.csv', header=None, names=['Time'])
+    snow_dates['Time'] = pd.to_datetime(snow_dates['Time'])
+
     # Plot the anomalies
     plt.figure(figsize=(12, 6))
     plt.plot(residual, label='Residual')
@@ -67,8 +72,14 @@ def anomaly_detection(decomposition, route_number):
     plt.axhline(upper_threshold, color='red',
                 linestyle='--', label='Upper Threshold')
     plt.scatter(anomalies.index, anomalies, color='lawngreen', label='Anomaly')
+
+    # Highlighting snow dates
+    for snow_date in snow_dates['Time']:
+        plt.axvline(x=snow_date, color='skyblue', linestyle=(
+            0, (5, 10)), label='Snow Date' if snow_date == snow_dates['Time'].iloc[0] else "")
+
     plt.legend()
-    plt.title('Residual based for Anomaly Detection')
+    plt.title('Residual based for Anomaly Detection for Route ' + route_number)
     plt.savefig(os.getcwd() + '/passup_anomaly/anomaly_detection/' +
                 route_number+'.png')
     plt.close()
@@ -76,14 +87,26 @@ def anomaly_detection(decomposition, route_number):
 
 def plot_passup(route_number):
     data = pd.read_csv(
-        os.getcwd() + '/passup_anomaly/route_passup/'+route_number+'.csv')
+        os.getcwd() + '/passup_anomaly/route_passup/' + route_number + '.csv')
     data['Time'] = pd.to_datetime(data['Time'])
-    data = data[(data['Time'] >= '2022-01-01') &
+    data = data[(data['Time'] >= '2022-09-01') &
                 (data['Time'] <= '2022-12-31')]
+
+    # Reading snow dates
+    snow_dates = pd.read_csv(
+        os.getcwd() + '/passup_anomaly/snow-Q42022.csv', header=None, names=['Time'])
+    snow_dates['Time'] = pd.to_datetime(snow_dates['Time'])
+
     plt.figure(figsize=(12, 6))
     plt.plot(data['Time'], data['Passup'], label='Pass-up')
+
+    # Highlighting snow dates
+    for snow_date in snow_dates['Time']:
+        plt.axvline(x=snow_date, color='skyblue', linestyle=(
+            0, (5, 10)), label='Snow Date' if snow_date == snow_dates['Time'].iloc[0] else "")
+
     plt.legend()
-    plt.title('Pass-up for Route' + route_number)
+    plt.title('Pass-up for Route ' + route_number)
     plt.savefig(os.getcwd() + '/passup_anomaly/route_passup_img/' +
                 route_number + '.png')
     plt.close()
