@@ -1,9 +1,9 @@
 The source code is broken up into 5 different directories, each serving a different purpose:
 
-1. activity -
+1. activity - analyze and visualize the passenger activity data
 2. connect_passup_activity - form meaningful connections between the pass-up data set and passenger activity data set
 3. passup - perform frequent pattern mining on the pass-up data set
-4. passup_anomaly -
+4. passup_anomaly - identify anomalies in the pass-up data set
 5. experimental_results - a collection of the final results obtained from running our code (CSV and PNG files used to create graphs and figures for our research paper)
 
 ### activity
