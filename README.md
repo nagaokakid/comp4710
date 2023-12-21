@@ -28,6 +28,7 @@ To run this part, navigate to "connect_passup_activity" directory. Unzip the fil
 - combinations for top15 of severity rankings: Since we have known the average_boardings and the pass-up support for each stop, we put the two columns together. So for each entry in the files of the foler, there are three values: pass_up_support, boardings and stop_id. Here we only care about the top 15 routes in the ranking of severity.
 - figures for top 15 of severity rankings: according to the files in the folder "combinations for top15 of severity rankings", we plot figures to visualize the pass-up support and avearge boardings of the top 15. So we can find the peaks easily.
 
+
 ### passup_anomaly
 
 The "passup_anomaly" directory is dedicated to identifying and analyzing anomalies in the pass-up data. This involves preprocessing the data, applying time series analysis, and detecting any unusual patterns or outliers that deviate from normal trends. To run this analysis, navigate to the "passup_anomaly" directory and execute the following commands:
