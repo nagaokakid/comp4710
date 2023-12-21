@@ -1,9 +1,10 @@
-This repository is broken up into 4 different directories, each serving a different purpose:
+The source code is broken up into 5 different directories, each serving a different purpose:
 
 1. activity -
 2. connect_passup_activity - form meaningful connections between the pass-up data set and passenger activity data set
 3. passup - perform frequent pattern mining on the pass-up data set
 4. passup_anomaly -
+5. experimental_results - a collection of the final results obtained from running our code (CSV and PNG files used to create graphs and figures for our research paper)
 
 ### passup
 
@@ -27,7 +28,6 @@ To run this part, navigate to "connect_passup_activity" directory. Unzip the fil
 - boardings for each stop of different directions: this folder contains the csv files similar to the lists of bus stops in order, except that I add a new column "average_boardings" for each entry (stop).
 - combinations for top15 of severity rankings: Since we have known the average_boardings and the pass-up support for each stop, we put the two columns together. So for each entry in the files of the foler, there are three values: pass_up_support, boardings and stop_id. Here we only care about the top 15 routes in the ranking of severity.
 - figures for top 15 of severity rankings: according to the files in the folder "combinations for top15 of severity rankings", we plot figures to visualize the pass-up support and avearge boardings of the top 15. There are 15 figures in this folder.
-
 
 ### passup_anomaly
 
