@@ -5,6 +5,15 @@ This repository is broken up into 4 different directories, each serving a differ
 3. passup - perform frequent pattern mining on the pass-up data set
 4. passup_anomaly -
 
+### activity
+
+To analyze and visualize the passenger activity data, navigate to the "activity" directory and run the command `python3 main.py`. This script processes the passenger activity data to perform various analyses and generate visualizations. The output includes:
+
+- Seasonal trends in passenger activity.
+- Analysis of passenger activity by day type.
+- Trends in passenger activity across different times of the day.
+- Identification of the busiest routes and stops based on average boardings.
+
 ### passup
 
 To execute frequent pattern mining operations on the pass-up data set and obtain the results, navigate to the "passup" directory. Then, run the command `python3 main.py`. Two text files and 3 CSV files will be generated as output in the same directory:
