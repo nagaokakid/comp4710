@@ -17,7 +17,7 @@ To execute frequent pattern mining operations on the pass-up data set and obtain
 
 ### connect_passup_activity
 
-To run this part, navigate to "connect_passup_activity" directory. Then run the command `python3 main.py` (for Mac) or just click the "run" button in the main function. Four CSV files and four folders will be generated as output in the same directory:
+To run this part, navigate to "connect_passup_activity" directory. Unzip the file "bus_stops_in_order". Then run the command `python3 main.py` (for Mac) or just click the "run" button in the main function. Four CSV files and four folders will be generated as output in the same directory:
 
 - pass_up_apriori_result_pre.csv: contains the frequent 1-itemset from the pass-up dataset (I merged route number, stop_id and route destination as one item) with a minimum support 0.002%. The order is descending. Since there are 3958 pass-ups in 2022 fall and 1/3958>0.002%, it means every pass-up is in the ranking as long as it exists in the pass-up dataset.
 - pass_up_apriori_result.csv: It is almost the same as the file above, except that it excludes some stops that cannot be found in the lists of bus stops in order. It also looks prettier since we separate the stop_id and the direction.
